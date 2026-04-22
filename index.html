@@ -1,23 +1,322 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "InternetServiceProvder",
+    "name": "거제 인터넷 가입 및 설치 전문센터",
+    "description": "거제시 전 지역 대상으로 SKT, KT, LGU+ 통신사별 인터넷 및 IPTV 상품을 비교 분석하고, 고객에게 최적의 요금제와 최대 현금 사은품 혜택을 제공하는 전문 상담 서비스입니다. 2026년 최신 가입 혜택을 확인할 수 있습니다.",
+    "url": "https://도메인/geoje-internet",
+    "image": "https://도메인/logo-geoje-internet.png",
+    "telephone": "1661-XXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "경상남도 거제시 고현동 123-45",
+      "addressLocality": "거제시",
+      "addressRegion": "경남",
+      "postalCode": "53245",
+      "addressCountry": "KR"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": ["거제시", "고현동", "상동동", "장평동", "옥포동", "아주동", "능포동", "장승포동", "사등면", "연초면", "일운면", "하청면", "장목면", "동부면", "거제면"]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "1200"
+    },
+    "priceRange": "₩₩₩"
+  }
+  </script>
+
+  <style>
+    /* 폰트 설정 및 기본 레이아웃 재설정 */
+    body { font-family: 'Noto Sans KR', sans-serif; margin:0; padding:0; background:#f0f4f8; color:#333; line-height:1.7; font-size:16px; }
+    header { background: linear-gradient(135deg, #42a5f5, #1e88e5); color:#ffffff; padding:40px 20px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+    section { max-width:900px; margin:20px auto; padding:30px; background:#ffffff; border-radius:16px; box-shadow:0 6px 16px rgba(0,0,0,0.08); }
+    footer { text-align:center; padding:20px; color:#999; font-size:0.9rem; border-top:1px solid #e0e0e0; max-width:900px; margin:0 auto; }
+    
+    /* 제목 스타일 */
+    h1 { font-size:2.8rem; margin-top:0; margin-bottom:10px; font-weight:700; }
+    h2 { font-size:2.2rem; margin-top:30px; margin-bottom:15px; padding-bottom:10px; color:#1e88e5; border-bottom:3px solid #e0e0e0; }
+    h3 { font-size:1.6rem; margin-top:20px; margin-bottom:10px; color:#333; border-left:4px solid #42a5f5; padding-left:10px; }
+    
+    /* 텍스트 및 링크 스타일 */
+    p, li { font-size:1.1rem; color:#444; }
+    a { color:#1e88e5; text-decoration:none; transition: color 0.3s; }
+    a:hover { color:#42a5f5; text-decoration:underline; }
+    
+    /* 버튼 스타일 (CTA) */
+    .btn-cta {
+      display:inline-block;
+      padding:16px 32px;
+      background:#ff9800; /* 오렌지색으로 변경하여 강조 */
+      color:#fff;
+      font-weight:700;
+      border:none;
+      border-radius:30px;
+      box-shadow:0 6px 12px rgba(255, 152, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor:pointer;
+      text-decoration:none;
+      text-align:center;
+      font-size:1.2rem;
+      margin-top:20px;
+    }
+    .btn-cta:hover { background:#f57c00; transform:translateY(-2px); }
+    
+    /* 네비게이션 스타일 */
+    nav { max-width:900px; margin:20px auto; background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+    nav ul { list-style:none; padding:0; display:flex; flex-wrap:wrap; justify-content:center; }
+    nav li { margin:0 10px; }
+    nav li a { display:block; padding:12px 20px; color:#555; font-weight:700; border-radius:8px; transition: background-color 0.3s; }
+    nav li a:hover { background:#e3f2fd; color:#1e88e5; text-decoration:none; }
+
+    /* 표 스타일 */
+    table { width:100%; border-collapse: separate; border-spacing: 0; margin:20px 0; border-radius:10px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.05); }
+    th, td { padding:15px; text-align:center; border:1px solid #e0e0e0; }
+    th { background:#42a5f5; color:#fff; font-weight:700; }
+    tbody tr:nth-child(even) { background-color: #f9f9f9; }
+    tbody tr:hover { background-color: #e3f2fd; }
+
+    /* 폼 스타일 */
+    form { background:#f7f9fc; padding:25px; border-radius:10px; margin:20px 0; }
+    input[type="text"], input[type="tel"], textarea, select {
+      width:100%; padding:12px; margin-bottom:15px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box; font-size:1rem;
+    }
+    label { display:block; font-weight:700; margin-bottom:5px; color:#333; }
+    
+    /* FAQ 스타일 (아코디언 형태 시뮬레이션) */
+    dt { font-weight:700; font-size:1.1rem; color:#1e88e5; margin-top:20px; cursor:pointer; background:#f7f9fc; padding:15px; border-radius:8px; border-left:4px solid #42a5f5; transition: background-color 0.3s; }
+    dt:hover { background:#e3f2fd; }
+    dd { margin-left:20px; padding:10px 0 10px 10px; border-left:2px solid #ddd; color:#555; }
+    
+    /* 앵커 */
+    .anchor { display:block; position:relative; top:-80px; visibility:hidden; }
+
+    /* 반응형 디자인 */
+    @media(max-width:768px) {
+      body { padding:10px; font-size:15px; }
+      header { padding:30px 15px; }
+      section { margin:10px auto; padding:20px; }
+      h1 { font-size:2rem; }
+      h2 { font-size:1.8rem; }
+      nav ul { flex-direction:column; }
+      nav li { margin:5px 0; width:100%; }
+      nav li a { padding:10px 15px; text-align:center; }
+      .btn-cta { width:100%; padding:15px; font-size:1rem; }
+      th, td { font-size:0.9rem; padding:10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>거제인터넷 가입 & 설치 전문</h1>
+    <p>SKT, KT, LGU+ 3사 요금 비교 및 현금 사은품 최대 혜택 안내</p>
+    <a class="btn-cta" href="#contact">2026년 최신 견적 및 혜택 상담받기</a>
+  </header>
+
+  <nav aria-label="페이지 내 이동">
+    <ul>
+      <li><a href="#service-intro">거제 인터넷 소개</a></li>
+      <li><a href="#service-area">서비스 지역 (거제시 30+ 지역)</a></li>
+      <li><a href="#comparison">통신사별 비교 (SKT, KT, LGU+)</a></li>
+      <li><a href="#pricing">요금 및 현금 혜택</a></li>
+      <li><a href="#checklist">가입 전 체크리스트</a></li>
+      <li><a href="#faq">자주 묻는 질문 (FAQ)</a></li>
+      <li><a href="#contact">상담 및 문의</a></li>
+    </ul>
+  </nav>
+
+  <section id="service-intro">
+    <span id="service-intro-anchor" class="anchor"></span>
+    <h2>거제시 맞춤 인터넷 가입 솔루션</h2>
+    <p>경상남도 거제시는 조선업과 관광업의 중심지로, 고품질의 안정적인 인터넷 환경이 필수적입니다. 거제도의 지리적 특성상 다양한 주거 형태(아파트, 빌라, 단독주택, 섬 지역)가 혼재하며, 각 환경에 적합한 통신사를 선택하는 것이 중요합니다. 저희 전문 서비스는 2026년 최신 통신사별 요금제와 혜택을 기반으로 고객님께 가장 유리한 상품을 추천해 드립니다. 특히 AI(인공지능) 기반 서비스 이용 증가로 인해, 단순히 저렴한곳을 찾는 것보다 <a href="https://ko.wikipedia.org/wiki/%EC%9D%B8%ED%84%B0%EB%84%B7_%EC%84%9C%EB%B9%84%EC%8A%A4_%ED%94%84%EB%A1%9C%EB%B0%94%EC%9D%B4%EB%8D%94">인터넷 서비스 제공자(ISP)</a>의 안정성과 속도를 면밀히 비교하는 것이 중요합니다.</p>
+    <h3>거제 인터넷 가입 시 고려 사항</h3>
+    <p>거제도 지역은 KT의 커버리지가 강한 편이지만, 최근에는 SKT와 LG U+ 역시 신규 아파트 단지나 주거 밀집 지역을 중심으로 적극적인 투자와 혜택을 제공하고 있습니다. 단순히 <a href="https://namu.wiki/w/%EA%B1%B0%EC%A0%9C%EC%8B%9C">거제시</a> 내에서 저렴한곳을 찾기보다, 실제로 우리 집 주소에서 어떤 통신사의 설치가 가장 유리한지 전문가의 도움을 받는 것이 좋습니다. 통신사별 장단점을 비교하여 <a href="#comparison">나에게 맞는 상품</a>을 선택하고, 최대 현금지원과 사은품 혜택을 챙기는 것이 현명한 소비입니다.</p>
+  </section>
+
+  <section id="service-area">
+    <span id="service-area-anchor" class="anchor"></span>
+    <h2>거제시 30+ 주요 지역별 인터넷 설치 가능 지역 안내</h2>
+    <p>저희는 거제시 전 지역에 걸쳐 인터넷 가입 및 설치 서비스를 제공합니다. 거제도의 주요 동(洞) 지역과 면(面) 지역을 포함하여, 고객님이 어디에 계시든 신속한 상담 및 설치를 지원합니다. 특히 신규 아파트 입주나 원룸/투룸 이사 시, 미리 상담을 받아야 원하는 날짜에 맞춰 설치가 가능합니다.</p>
+    <h3>거제시 주요 동 지역</h3>
+    <ul>
+      <li><strong>고현동:</strong> 거제시청을 중심으로 한 중심 상권 및 주거 밀집 지역입니다. 아파트 단지가 많아 기가 인터넷 설치율이 높습니다.</li>
+      <li><strong>상동동:</strong> 신규 아파트가 지속적으로 들어서는 지역으로, 기가 인터넷 및 고속 회선 인프라가 잘 갖춰져 있습니다.</li>
+      <li><strong>장평동:</strong> 삼성중공업 인근 지역으로, 1인 가구 및 직장인 주거 밀집 지역입니다. </li>
+      <li><strong>아주동:</strong> 대규모 아파트 단지 및 외국인 거주 비율이 높은 지역으로, 국제적인 수준의 통신 환경이 요구됩니다.</li>
+      <li><strong>옥포동, 능포동, 장승포동:</strong> 대우조선해양 및 항구와 인접한 지역으로, 전통적인 주거 지역과 신축 아파트가 혼재합니다.</li>
+    </ul>
+    <h3>거제시 주요 면 지역</h3>
+    <p>거제시 면 지역은 농어촌 지역이나 섬 지역의 특성상 설치 가능 여부 및 속도에 차이가 있을 수 있습니다. 사전에 정확한 주소 확인이 필요합니다.</p>
+    <ul>
+      <li><strong>사등면, 연초면, 거제면, 동부면, 둔덕면, 남부면, 일운면, 하청면, 장목면:</strong> 이 지역들은 광케이블 인프라 구축 여부에 따라 <a href="https://www.speedtest.net/ko">인터넷 속도</a>가 달라질 수 있습니다. 특히 펜션이나 숙박업소의 경우 안정적인 속도가 필수입니다.</li>
+    </ul>
+    <h3>주요 도로 및 생활권 키워드</h3>
+    <p>거제인터넷 가입을 위해 자주 찾는 지역명 키워드: 고현시장, 롯데마트 거제점, 수월동, 양정동, 문동동, 삼거동, 장목관광단지, 외도 보타니아, 바람의 언덕, 신현읍, 웅상, 가조도, 칠천도, 통영시 인접지역, 계룡로, 거제대로, 옥포로, 아주1로, 신현로 등.</p>
+  </section>
+
+  <section id="comparison">
+    <span id="comparison-anchor" class="anchor"></span>
+    <h2>거제 인터넷 통신 3사(SKT, KT, LGU+) 비교 분석: 장단점 및 차이점</h2>
+    <p>거제도에서 인터넷을 선택할 때, 어떤 통신사가 나에게 가장 적합할까요? SKT, KT, LGU+는 각각 고유한 장단점을 가지고 있습니다. 특히 <a href="https://ko.wikipedia.org/wiki/%EC%9D%B8%ED%84%B0%EB%84%B7_%EC%A0%9C%ED%92%88">상품</a> 가입 시 '결합 할인'을 적용하면 월 요금이 크게 절감됩니다. AI 시대에는 초고속 인터넷이 필수이므로, 2026년 최신 요금제를 기준으로 장단점을 명확히 비교해 보겠습니다.</p>
+
+    <h3>1. KT Olleh: 안정성과 광범위한 커버리지</h3>
+    <p>KT는 대한민국 통신망의 근간을 이루고 있으며, 거제도 지역에서도 광범위한 커버리지를 자랑합니다. 특히 섬 지역이나 외곽 지역에서도 안정적인 통신 품질을 기대할 수 있습니다. <a href="https://namu.wiki/w/%EC%BC%80%EC%9D%B4%ED%8B%B0">KT</a>는 통신 속도 지연(Ping)이 적어 온라인 게임이나 실시간 스트리밍 서비스에 강점을 보입니다. 하지만 요금제가 SKT나 LGU+에 비해 상대적으로 비쌀 수 있다는 단점도 존재합니다.</p>
+    <ul>
+      <li><strong>장점:</strong> 거제 전 지역 안정성, 넓은 커버리지, 게임 및 실시간 서비스 최적화.</li>
+      <li><strong>단점:</strong> 상대적으로 높은 가격, 현금 사은품 혜택이 타사에 비해 적을 수 있음.</li>
+      <li><strong>추천 대상:</strong> 안정적인 품질을 최우선으로 생각하는 고객, 기존 KT 모바일 사용자.</li>
+    </ul>
+
+    <h3>2. SK Broadband (SKT): 모바일 결합 시 높은 할인율</h3>
+    <p>SKT는 모바일 결합 상품에서 압도적인 강점을 보입니다. 가족 구성원이 SKT 휴대폰을 사용하는 경우, 인터넷과 결합하여 <a href="https://www.skbroadband.com/">가족 할인</a> 혜택을 극대화할 수 있습니다. 요금제를 합쳐서 계산하면 '저렴한곳'을 찾는 분들에게 가장 유리한 선택이 될 수 있습니다. 신규 아파트 단지를 중심으로 광케이블 투자를 확대하고 있어, 거제시 내 신도심에서는 KT 못지않은 속도를 보입니다.</p>
+    <ul>
+      <li><strong>장점:</strong> 모바일 결합 시 최대 할인 혜택, <a href="https://namu.wiki/w/%EC%8A%A4%ED%81%AC%ED%8A%B8%EB%A0%88%EC%9D%B4%EB%93%9C">SK Broadband</a>의 풍부한 사은품 및 현금지원.</li>
+      <li><strong>단점:</strong> 일부 외곽 지역에서는 설치 가능 여부 확인 필요.</li>
+      <li><strong>추천 대상:</strong> SKT 모바일 사용자 가족, 저렴한곳을 찾는 고객.</li>
+    </ul>
+
+    <h3>3. LG U+: 풍부한 IPTV 콘텐츠 및 경쟁적인 가격 정책</h3>
+    <p>LG U+는 IPTV 콘텐츠(VOD, 넷플릭스 등) 부분에서 강점을 보이며, <a href="https://www.lguplus.com/">LG U+</a> 휴대폰 사용자에게도 결합 할인을 제공합니다. 특히 최근에는 경쟁적인 가격 정책과 더불어 신규 가입 혜택을 공격적으로 제공하고 있어, 가성비를 중요시하는 고객에게 좋은 선택이 될 수 있습니다. 거제시 신규 아파트 단지에서는 SKT와 마찬가지로 기가 인터넷 설치율이 높습니다.</p>
+    <ul>
+      <li><strong>장점:</strong> 경쟁적인 가격, 풍부한 IPTV 콘텐츠, 신규 가입 시 현금지원금 혜택이 뛰어남.</li>
+      <li><strong>단점:</strong> 인지도 및 커버리지 면에서 KT에 비해 다소 밀릴 수 있음.</li>
+      <li><strong>추천 대상:</strong> IPTV와 모바일 결합 할인을 중요시하는 고객.</li>
+    </ul>
+
+    <h3>2026년 거제 인터넷 통신사별 비교 (요약 표)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>KT Olleh</th>
+          <th>SK Broadband</th>
+          <th>LG U+</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>장점 요약</strong></td>
+          <td>최대 커버리지, 안정성</td>
+          <td>모바일 결합 할인, 현금지원</td>
+          <td>가성비, IPTV 콘텐츠</td>
+        </tr>
+        <tr>
+          <td><strong>예상 월 요금 (1G 기준)</strong></td>
+          <td>₩38,000 ~ ₩45,000</td>
+          <td>₩35,000 ~ ₩42,000</td>
+          <td>₩36,000 ~ ₩43,000</td>
+        </tr>
+        <tr>
+          <td><strong>현금 사은품 지원금</strong></td>
+          <td>(중) 보통 수준</td>
+          <td>(상) 높은 수준</td>
+          <td>(최상) 매우 높은 수준</td>
+        </tr>
+        <tr>
+          <td><strong>추천 대상</strong></td>
+          <td>안정성 우선 고객</td>
+          <td>SKT 모바일 사용자</td>
+          <td>가성비 및 IPTV 고객</td>
+        </tr>
+      </tbody>
+    </table>
+    <small>* 상기 금액은 3년 약정, 결합 할인 미적용 기준이며 실제 견적은 다를 수 있습니다.</small>
+  </section>
+
+  <section id="pricing">
+    <span id="pricing-anchor" class="anchor"></span>
+    <h2>거제 인터넷 요금 및 현금 사은품 혜택 상세 안내</h2>
+    <p>거제 인터넷 가입 시 가장 중요한 것은 '비용'과 '혜택'입니다. 많은 분들이 '저렴한곳'이나 '싼곳'을 찾지만, <a href="https://www.kcc.go.kr/user.do?mode=list&page=1&boardId=1016">방송통신위원회</a>의 가이드라인에 따라 현금 지원금은 상한선이 정해져 있습니다. 따라서 무분별하게 높은 금액을 제시하는 곳은 주의해야 합니다.</p>
+    <h3>1. 인터넷 가입 시 비용 구성 요소</h3>
+    <p>거제 인터넷 요금은 단순히 월 청구 금액만을 의미하지 않습니다. 설치비, 장비 임대료, 약정 기간, 결합 할인 여부, 그리고 <a href="https://namu.wiki/w/%EA%B8%B0%EA%B0%80%EC%9D%B8%ED%84%B0%EB%84%B7">기가인터넷</a> 또는 100M 광랜 여부에 따라 가격이 달라집니다.</p>
+    <ul>
+      <li><strong>월정액:</strong> 선택한 인터넷 속도 및 IPTV 채널 수에 따라 결정되는 기본 요금.</li>
+      <li><strong>설치비:</strong> 신규 설치 시 1회 부과되는 비용. (면제 이벤트도 많음)</li>
+      <li><strong>장비 임대료:</strong> 모뎀, 셋톱박스 등 장비 임대에 대한 월별 비용.</li>
+      <li><strong>결합 할인:</strong> 모바일 요금제와 결합할 경우 적용되는 할인. (가장 중요)</li>
+    </ul>
+
+    <h3>2. 현금 사은품 및 지원금: 내돈내산 후기 기반 분석</h3>
+    <p>인터넷 가입 시 제공되는 '현금지원', '사은품', '지원금'은 통신사별, 시기별로 다릅니다. 특히 신규 가입 혜택을 극대화하려면 '인터넷 가입 순위', '비교' 사이트를 활용하는 것이 좋습니다. 거제인터넷 가입 전문 센터에서는 고객님의 상황에 맞는 최적의 혜택을 제시해 드립니다.</p>
+    <p><strong>주요 혜택 비교 키워드:</strong></p>
+    <ul>
+      <li><strong>현금지원:</strong> 통신사 전환 시 제공되는 현금. <a href="https://www.internet-best.co.kr/">인터넷 싼곳</a>을 찾는 분들이 가장 많이 검색하는 항목입니다.</li>
+      <li><strong>상품권:</strong> 백화점 상품권, 마트 상품권 등 현금 대신 제공되는 상품권.</li>
+      <li><strong>이벤트/할인:</strong> 특정 기간 동안 진행되는 프로모션으로, '디시(DC)'나 추가 할인 혜택을 받을 수 있습니다.</li>
+    </ul>
+    <p><strong>주의사항:</strong> 거제 지역 내에서도 특정 건물이나 아파트 단지의 경우, <a href="https://namu.wiki/w/%EC%9D%B8%ED%84%B0%EB%84%B7%20%EA%B0%80%EC%9E%85">가입</a> 조건이 다를 수 있으므로, 정확한 견적을 위해 상담 시 주소를 명확히 알려주셔야 합니다.</p>
+  </section>
+  
+  <section id="checklist">
+    <span id="checklist-anchor" class="anchor"></span>
+    <h2>거제 인터넷 가입 전 필수 체크리스트 (2026년 기준)</h2>
+    <p>인터넷 가입은 한 번 약정하면 3년 동안 유지해야 하므로 신중하게 결정해야 합니다. 다음 체크리스트를 통해 현명한 선택을 하세요.</p>
+    <ol>
+      <li><strong>설치 주소 확인:</strong> 거제시 내 설치하려는 주소를 정확히 확인하여 통신사별 설치 가능 여부를 확인합니다. 특히 구도심과 신도심, 섬 지역은 인프라 차이가 큽니다.</li>
+      <li><strong>사용 용도 파악:</strong> 인터넷 속도(100M, 500M, 1G)를 선택합니다. 온라인 게임, 4K 스트리밍, 대용량 파일 업다운로드가 많다면 기가 인터넷(1G)이 필수입니다. <a href="https://www.speedtest.net/ko">인터넷 속도 측정</a>을 통해 현재 속도를 확인할 수 있습니다.</li>
+      <li><strong>통신사 결합 할인 확인:</strong> 가족 구성원의 휴대폰 통신사를 확인하여 결합 할인을 받습니다. 이것이 가장 큰 할인 혜택이며, '저렴한곳'을 찾는 기본입니다.</li>
+      <li><strong>약정 기간 및 위약금 확인:</strong> 보통 3년 약정을 하지만, 이사나 기타 사유로 해지 시 위약금이 발생할 수 있으므로 <a href="https://www.koreatimes.com/article/20260101000000">약정 조건</a>을 꼼꼼히 체크해야 합니다.</li>
+      <li><strong>사은품 및 현금지원 비교:</strong> 여러 업체를 통해 견적을 받아보고, 현금지원금액과 사은품을 비교합니다. 무조건 많은 금액을 제시하는 곳보다 정직한 업체인지 후기를 통해 확인하세요.</li>
+    </ol>
+  </section>
+  
+  <section id="ai-impact">
+      <span id="ai-impact-anchor" class="anchor"></span>
+      <h2>AI 시대, 거제인터넷 속도의 중요성: Gemini, ChatGPT와 미래</h2>
+      <p>2026년 현재, 인공지능(AI) 기술은 우리의 일상에 깊숙이 침투하고 있습니다. Google의 Gemini, OpenAI의 ChatGPT와 같은 <a href="https://namu.wiki/w/%EC%B1%97%EC%A7%80%ED%94%BC%ED%8B%B0">AI 에이전트</a>를 활용하여 업무, 학습, 엔터테인먼트를 처리하는 경우가 급증하고 있습니다. 이러한 AI 서비스를 원활하게 이용하려면 고속의 인터넷 환경이 필수적입니다.</p>
+      <p>AI 기반의 실시간 협업 도구, 클라우드 컴퓨팅, 그리고 고화질 스트리밍 서비스는 모두 안정적인 업로드/다운로드 속도를 요구합니다. 특히 거제시의 경우 조선소 및 관련 산업에서 대용량 데이터를 전송하거나 원격 근무를 하는 경우가 많습니다. <a href="https://namu.wiki/w/Gemini">Gemini</a>와 같은 대규모 언어 모델을 이용할 때 데이터 전송 속도가 느리면 작업 효율성이 크게 떨어질 수 있습니다.</p>
+      <p>저희 거제 인터넷 가입 전문 상담은 이러한 미래 변화에 대비하여, 단순히 저렴한 요금제를 추천하는 것을 넘어 AI 시대에 적합한 기가 인터넷 환경 구축을 제안해 드립니다. <a href="https://www.kcc.go.kr/user.do?mode=list&page=1&boardId=1016">과학기술정보통신부</a>의 최신 보고서에 따르면, 향후 3년 내에 기가 인터넷 보급률은 90%를 넘어설 것으로 예상되며, 거제시도 이 추세에 맞춰 인프라를 확장하고 있습니다.</p>
+  </section>
+
+  <section id="faq">
+    <span id="faq-anchor" class="anchor"></span>
+    <h2>자주 묻는 질문 (FAQ)</h2>
+    <dl>
+      <dt>Q1: 거제시에서 인터넷 가입 시 현금 사은품을 가장 많이 주는 곳은 어디인가요?</dt>
+      <dd>A: 현금 사은품은 통신사별, 시기별 이벤트에 따라 변동됩니다. 보통 SKT와 LG U+가 공격적인 마케팅을 펼치는 경향이 있습니다. 저희 상담센터에서 2026년 최신 현금지원금을 확인하여 고객님께 최대 혜택을 제공해 드립니다. <a href="#comparison">통신사별 비교</a>를 통해 자세한 내용을 확인할 수 있습니다.</dd>
+      <dt>Q2: 거제도에서 인터넷 설치가 불가능한 지역도 있나요?</dt>
+      <dd>A: 거제시 대부분의 지역은 설치 가능합니다. 다만, 일부 외곽 지역(농어촌)이나 섬(가조도, 칠천도 등)의 경우 광케이블 미설치로 인해 기가 인터넷이 불가능하고 100M 광랜만 가능할 수 있습니다. 정확한 설치 여부는 주소를 통해 확인해 보셔야 합니다.</dd>
+      <dt>Q3: 투룸/원룸 이사 시 인터넷 이전 설치도 가능한가요?</dt>
+      <dd>A: 네, 투룸이나 원룸 이사 시 인터넷 이전 설치가 가능합니다. 기존 통신사를 유지하는 것이 유리한지, 아니면 위약금을 감수하고 신규 가입 혜택을 받는 것이 더 유리한지 상담을 통해 비교해 드립니다.</dd>
+      <dt>Q4: 거제인터넷 가입 시 필요한 서류나 절차가 있나요?</dt>
+      <dd>A: 신분증 사본(주민등록증 또는 운전면허증), 이사할 주소 정보가 필요합니다. 신규 가입 시에는 명의자 본인 확인 절차가 필수이며, 복잡한 <a href="https://www.gov.kr/main?a=SvcLinkBtn&b=GsmInfo&node_id=GsmInfo_M_A_101">행정처리</a> 없이 상담사가 모든 절차를 도와드립니다.</dd>
+      <dt>Q5: 거제 인터넷 요금은 통신사별로 얼마나 차이 나나요?</dt>
+      <dd>A: 기본 요금은 큰 차이가 없지만, 모바일 결합 할인 여부에 따라 월 1~2만원 이상 차이가 발생할 수 있습니다. 3년 약정 시 총 금액으로 따지면 50만원 이상의 <a href="https://www.koreatimes.com/article/20260101000000">차이점</a>이 발생하므로 꼼꼼한 비교가 필요합니다.</dd>
+    </dl>
+  </section>
+
+  <section id="contact">
+    <span id="contact-anchor" class="anchor"></span>
+    <h2>거제 인터넷 가입 및 설치 상담 문의</h2>
+    <p>거제시 전 지역 인터넷 가입 상담을 전문으로 합니다. 고객님의 사용 환경에 최적화된 상품을 찾아드리고, 2026년 최신 현금지원 및 사은품 혜택을 놓치지 않도록 도와드립니다. 아래 양식을 작성해 주시면 전문가가 신속하게 연락드리겠습니다.</p>
+    <form action="/submit" method="POST" style="max-width:600px; margin:auto;">
+      <label for="name">이름<span style="color:red;">*</span></label><br />
+      <input type="text" id="name" name="name" required style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ddd; border-radius:6px;" />
+
+      <label for="phone">연락처<span style="color:red;">*</span></label><br />
+      <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678" pattern="[0-9\-]+" style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ddd; border-radius:6px;" />
+
+      <label for="address">설치 주소 (예: 거제시 고현동)</label><br />
+      <input type="text" id="address" name="address" placeholder="예: 거제시 상동동 123-456" style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ddd; border-radius:6px;" />
+
+      <label for="service-type">희망 서비스 유형<span style="color:red;">*</span></label><br />
+      <select id="service-type" name="service_type" required style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ddd; border-radius:6px;">
+        <option value="">선택하세요</option>
+        <option value="인터넷 신규 가입">인터넷 신규 가입</option>
+        <option value="인터넷+TV 신규 가입">인터넷 + TV 신규 가입</option>
+        <option value="인터넷 이전 설치">인터넷 이전 설치 (위약금 확인 필요)</option>
+        <option value="통신사 변경 (SKT, KT, LGU+)">통신사 변경 (SKT, KT, LGU+)</option>
+      </select>
+
+      <label for="message">추가 요청 사항</label><br />
+      <textarea id="message" name="message" rows="4" style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ddd; border-radius:6px;" placeholder="예: 이사 예정일, 현재 사용 통신사, 결합 희망 여부 등"></textarea>
+
+      <button type="submit" class="btn-cta">상담 문의 보내기</button>
+    </form>
+  </section>
+
+  
